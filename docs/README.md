@@ -1,6 +1,6 @@
 # Baseball game with Java (자바로 만드는 야구게임)
 ## Features
-1. make random three digit number with 1~9 and store for a game (게임을 위해 3자리의 랜덤한 숫자를 !~9를 이용해 만들고 저장한다 )
+1. make random three digit number with 1~9 and store for a game (게임을 위해 3자리의 랜덤한 숫자를 1~9를 이용해 만들고 저장한다 )
 2. take user's input and store it (user의 input을 받고 저장한다)
 3. compare two numbers (두 숫자를 비교한다)
    - same number same spot : strike (같은 숫자 같은 자리: 스트라이크)
