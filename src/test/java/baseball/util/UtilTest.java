@@ -14,7 +14,7 @@ class UtilTest {
         Util util = new Util();
         String numberInString = util.makeRandomNumberInString();
         System.out.println(numberInString);
-        List<Character> numberInChar= numberInString.chars().mapToObj(i -> (char) i).collect(Collectors.toList());
+        List<Character> numberInChar = numberInString.chars().mapToObj(i -> (char) i).collect(Collectors.toList());
         assertThat(numberInChar).doesNotContain('0');
         assertThat(numberInChar).size().isEqualTo(3);
         char removed = numberInChar.remove(0);

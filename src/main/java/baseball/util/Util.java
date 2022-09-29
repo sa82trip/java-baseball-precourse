@@ -1,43 +1,28 @@
 package baseball.util;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Util {
-    public String makeRandomNumberInString() {
-        return getStringifiedNumber();
-    }
+    int NUMBER_OF_DIGITS = 3;
+    int NUMBER_START = 1;
+    int NUMBER_END = 9;
 
-    private String getStringifiedNumber() {
+    public String makeRandomNumberInString() {
         StringBuilder result = new StringBuilder();
-        for (Integer number : getRandomNumber(3)) {
+        for (Integer number : getRandomNumber(NUMBER_OF_DIGITS)) {
             result.append(number);
         }
         return result.toString();
     }
 
-    private List<Integer> getRandomNumber(int digits) {
-        int limit = 0;
-        List<Integer> randomNumbers = new ArrayList<>();
-        while (limit < digits) {
-            int randomNumber = Randoms.pickNumberInRange(1, 9);
-            try{
-                randomNumbers.add(barf(randomNumbers, randomNumber));
-                limit++;
-            }catch (IllegalArgumentException e){
-                System.out.println(e.getMessage());
-                getRandomNumber(digits);
-            }
+    private Set<Integer> getRandomNumber(int numberOfDigits) {
+        Set<Integer> randomNumbers = new HashSet<>();
+        while (randomNumbers.size() < numberOfDigits) {
+            randomNumbers.add(Randoms.pickNumberInRange(NUMBER_START, NUMBER_END));
         }
         return randomNumbers;
-    }
-
-    private Integer barf(List<Integer> numbers, int number) {
-        if (numbers.contains(number)) {
-            throw new IllegalArgumentException("can not add duplicate number");
-        }
-        return number;
     }
 
 }

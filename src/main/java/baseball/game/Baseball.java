@@ -7,20 +7,20 @@ public class Baseball {
     Player computer;
     Player user;
 
-    public void beginGame () {
+    public Baseball(Player computer, Player user) {
+        this.computer = computer;
+        this.user = user;
+    }
+
+    public void beginGame() {
 
         boolean finish = false;
 
         //TODO: add determiner to finish baseball game
-        while (!finish){
+        while (!finish) {
             System.out.print("숫자를 입력해주세요:");
             user.setThreeDigitNumber(Console.readLine());
         }
-    }
-
-    public Baseball(Player computer, Player user) {
-        this.computer = computer;
-        this.user = user;
     }
 }
 
