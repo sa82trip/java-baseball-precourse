@@ -34,7 +34,7 @@ public class Baseball {
         }
     }
 
-    private String displayResult(String[] result) {
+    protected String displayResult(String[] result) {
         String ballPart = String.format("%s볼", result[0]);
         String strikePart = String.format("%s스트라이크", result[1]);
         if (ballPart.contains("0") && strikePart.contains("0")) {
@@ -50,7 +50,7 @@ public class Baseball {
     }
 
 
-    private boolean needToFinish(String judge) {
+    protected boolean needToFinish(String judge) {
         return judge.endsWith("3");
     }
 }
