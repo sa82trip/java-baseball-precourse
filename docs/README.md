@@ -1,5 +1,7 @@
 # Baseball game with Java (자바로 만드는 야구게임)
+
 ## Features
+
 1. make application runnable (어플리케이션을 실행가능하게 만든다)
 2. make random three digit number with 1~9 and store for a game (게임을 위해 3자리의 랜덤한 숫자를 1~9를 이용해 만들고 저장한다 )
 3. take user's input and store it (user의 input을 받고 저장한다)
