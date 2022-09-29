@@ -19,7 +19,7 @@ public class Baseball {
         //TODO: add determiner to finish baseball game
         while (!finish) {
             System.out.print("숫자를 입력해주세요:");
-            user.setThreeDigitNumber(Console.readLine());
+            user.setInputNumber(Console.readLine());
         }
     }
 }

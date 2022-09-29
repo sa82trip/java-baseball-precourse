@@ -9,7 +9,7 @@ public class Application {
         // TODO: 프로그램 구현
         Util util = new Util();
         Player computer = new Player();
-        computer.setThreeDigitNumber(util.makeRandomNumberInString());
+        computer.setInputNumber(util.makeRandomNumberInString());
         Player user = new Player();
         Baseball baseball = new Baseball(computer, user);
         baseball.beginGame();
