@@ -2,6 +2,7 @@ package baseball;
 
 import baseball.game.Baseball;
 import baseball.player.Player;
+import baseball.umpire.Umpire;
 import baseball.util.Util;
 
 public class Application {
@@ -11,7 +12,8 @@ public class Application {
         Player computer = new Player();
         computer.setInputNumber(util.makeRandomNumberInString());
         Player user = new Player();
-        Baseball baseball = new Baseball(computer, user);
+        Umpire umpire = new Umpire();
+        Baseball baseball = new Baseball(computer, user, umpire);
         baseball.beginGame();
     }
 }
