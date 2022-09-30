@@ -1,6 +1,10 @@
 package baseball.game;
 
 
+import static baseball.constant.BaseballStringEnum.ONE_BALL;
+import static baseball.constant.BaseballStringEnum.THREE_STRIKE;
+import static baseball.constant.BaseballStringEnum.TWO_STRIKE;
+import static baseball.constant.BaseballStringEnum.ZERO_BALL;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.AfterEach;
@@ -13,14 +17,6 @@ import org.mockito.MockitoAnnotations;
 
 class BaseballTest {
 
-    final String ZERO_BALL = "0";
-    final String ONE_BALL = "1";
-    final String TWO_BALL = "2";
-    final String THREE_BALL = "3";
-    final String ZERO_STRIKE = "0";
-    final String ONE_STRIKE = "1";
-    final String TWO_STRIKE = "2";
-    final String THREE_STRIKE = "3";
     @Mock
     AutoCloseable closeable;
     @InjectMocks
@@ -39,12 +35,13 @@ class BaseballTest {
     @Test
     @DisplayName("when user gets one ball and two strikes")
     void displayResult_() {
-        assertThat(unit.displayResult(new String[]{ONE_BALL, TWO_STRIKE})).contains("1볼").contains("2스트라이크");
+        assertThat(unit.displayResult(new String[]{ONE_BALL.label, TWO_STRIKE.label})).contains("1볼")
+                .contains("2스트라이크");
     }
 
     @Test
     @DisplayName("game should be finished if user gets three strikes")
     void needToFinish() {
-        assertThat(unit.needToFinish(String.format("%s:%s", ZERO_BALL, THREE_STRIKE))).isTrue();
+        assertThat(unit.needToFinish(String.format("%s:%s", ZERO_BALL.label, THREE_STRIKE.label))).isTrue();
     }
 }

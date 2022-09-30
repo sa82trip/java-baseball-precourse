@@ -1,5 +1,10 @@
 package baseball.game;
 
+import static baseball.constant.BaseballStringEnum.NOTHING;
+import static baseball.constant.BaseballStringEnum.THREE_STRIKE;
+import static baseball.constant.BaseballStringEnum.ZERO_BALL;
+import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
+
 import baseball.player.Player;
 import baseball.umpire.Umpire;
 import baseball.util.Util;
@@ -37,13 +42,13 @@ public class Baseball {
     protected String displayResult(String[] result) {
         String ballPart = String.format("%s볼", result[0]);
         String strikePart = String.format("%s스트라이크", result[1]);
-        if (ballPart.contains("0") && strikePart.contains("0")) {
-            return "낫싱";
+        if (ballPart.contains(ZERO_BALL.label) && strikePart.contains(ZERO_STRIKE.label)) {
+            return NOTHING.label;
         }
-        if (ballPart.contains("0") && !strikePart.contains("0")) {
+        if (ballPart.contains(ZERO_BALL.label) && !strikePart.contains(ZERO_STRIKE.label)) {
             return strikePart;
         }
-        if (strikePart.contains("0") && !ballPart.contains("0")) {
+        if (strikePart.contains(ZERO_STRIKE.label) && !ballPart.contains(ZERO_BALL.label)) {
             return ballPart;
         }
         return ballPart + " " + strikePart;
@@ -51,7 +56,7 @@ public class Baseball {
 
 
     protected boolean needToFinish(String judge) {
-        return judge.endsWith("3");
+        return judge.endsWith(THREE_STRIKE.label);
     }
 }
 

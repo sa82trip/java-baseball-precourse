@@ -1,5 +1,8 @@
 package baseball.player;
 
+import static baseball.constant.BaseballStringEnum.INVALID_DIGIT_NUMBER;
+import static baseball.constant.BaseballStringEnum.NUMBER_INCLUDES_DUPLICATE;
+import static baseball.constant.BaseballStringEnum.VALID_NUMBER;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -12,20 +15,35 @@ class PlayerTest {
     @DisplayName("number which is not 3-digit number should result to get False")
     void validateInputFalse() {
         Player unit = new Player();
-        assertThat(unit.validateInput("1234")).isFalse();
+        assertThat(unit.validateInput(INVALID_DIGIT_NUMBER.label)).isFalse();
     }
 
     @Test
     @DisplayName("number which is 3-digit number should result to get True")
     void validateInputSuccess() {
         Player unit = new Player();
-        assertThat(unit.validateInput("123")).isTrue();
+        assertThat(unit.validateInput(VALID_NUMBER.label)).isTrue();
     }
 
     @Test
     @DisplayName("setting number which is not 3-digit to model should result IllegalArgumentException")
     void setInputNumber() {
         Player unit = new Player();
-        assertThrows(IllegalArgumentException.class, () -> unit.setInputNumber("1234"));
+        assertThrows(IllegalArgumentException.class, () -> unit.setInputNumber(INVALID_DIGIT_NUMBER.label));
     }
+
+    @Test
+    @DisplayName("should return true with ${NUMBER_INCLUDES_DUPLICATE}")
+    void containDuplicate_true() {
+        Player unit = new Player();
+        assertThat(unit.containDuplicate(NUMBER_INCLUDES_DUPLICATE.label)).isTrue();
+    }
+
+    @Test
+    @DisplayName("should return false with ${VALID_NUMBER}")
+    void containDuplicate_false() {
+        Player unit = new Player();
+        assertThat(unit.containDuplicate(VALID_NUMBER.label)).isFalse();
+    }
+
 }

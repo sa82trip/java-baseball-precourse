@@ -1,9 +1,12 @@
 package baseball.player;
 
+import static baseball.constant.BaseballNumberEnum.BEGINNING_CHARACTER;
+import static baseball.constant.BaseballNumberEnum.MAX_DIGIT;
+import static baseball.constant.BaseballStringEnum.INVALID_NUMBER_FOR_INPUT;
+
 public class Player {
     String inputNumber;
 
-    int MAX_DIGIT = 3;
 
     public String getInputNumber() {
         return inputNumber;
@@ -17,17 +20,20 @@ public class Player {
     }
 
     protected boolean validateInput(String inputNumber) {
-        if (inputNumber.length() != MAX_DIGIT) {
+        if (inputNumber.length() != MAX_DIGIT.intValue) {
             return false;
         }
-        if (inputNumber.contains("0")) {
+        if (inputNumber.contains(INVALID_NUMBER_FOR_INPUT.label)) {
             return false;
         }
-        return containDuplicate(inputNumber);
+        if (containDuplicate(inputNumber)) {
+            return false;
+        }
+        return true;
     }
 
-    private boolean containDuplicate(String inputNumber) {
+    protected boolean containDuplicate(String inputNumber) {
         String subString = inputNumber.substring(1, 3);
-        return !subString.contains(inputNumber.charAt(0) + "");
+        return subString.contains(String.valueOf(inputNumber.charAt(BEGINNING_CHARACTER.intValue)));
     }
 }
