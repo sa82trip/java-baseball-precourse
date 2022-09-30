@@ -40,18 +40,18 @@ public class Baseball {
     }
 
     protected String displayResult(String[] result) {
-        String ballPart = String.format("%s볼", result[0]);
-        String strikePart = String.format("%s스트라이크", result[1]);
-        if (ballPart.contains(ZERO_BALL.label) && strikePart.contains(ZERO_STRIKE.label)) {
+        String BALL_PART = result[0];
+        String STRIKE_PART = result[1];
+        if (BALL_PART.equals(ZERO_BALL.label) && STRIKE_PART.equals(ZERO_STRIKE.label)) {
             return NOTHING.label;
         }
-        if (ballPart.contains(ZERO_BALL.label) && !strikePart.contains(ZERO_STRIKE.label)) {
-            return strikePart;
+        if (BALL_PART.equals(ZERO_BALL.label)) {
+            return STRIKE_PART;
         }
-        if (strikePart.contains(ZERO_STRIKE.label) && !ballPart.contains(ZERO_BALL.label)) {
-            return ballPart;
+        if (STRIKE_PART.equals(ZERO_STRIKE.label)) {
+            return BALL_PART;
         }
-        return ballPart + " " + strikePart;
+        return String.format("%s볼 %s스트라이크", BALL_PART, STRIKE_PART);
     }
 
 
