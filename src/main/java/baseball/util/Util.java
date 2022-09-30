@@ -11,13 +11,13 @@ public class Util {
 
     public String makeRandomNumberInString() {
         StringBuilder result = new StringBuilder();
-        for (Integer number : getRandomNumber(NUMBER_OF_DIGITS)) {
+        for (Integer number : getRandomNumbers(NUMBER_OF_DIGITS)) {
             result.append(number);
         }
         return result.toString();
     }
 
-    private Set<Integer> getRandomNumber(int numberOfDigits) {
+    private Set<Integer> getRandomNumbers(int numberOfDigits) {
         Set<Integer> randomNumbers = new HashSet<>();
         while (randomNumbers.size() < numberOfDigits) {
             randomNumbers.add(Randoms.pickNumberInRange(NUMBER_START, NUMBER_END));
