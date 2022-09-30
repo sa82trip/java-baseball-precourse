@@ -15,7 +15,9 @@ public enum BaseballStringEnum {
     INVALID_NUMBER_FOR_INPUT("0"),
     INVALID_DIGIT_NUMBER("1234"),
     VALID_NUMBER("123"),
-    NUMBER_INCLUDES_DUPLICATE("122");
+    NUMBER_INCLUDES_DUPLICATE("122"),
+    STRIKE("strike"),
+    BALL("ball");
 
 
     public final String label;
