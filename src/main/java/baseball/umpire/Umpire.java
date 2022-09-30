@@ -7,12 +7,12 @@ public class Umpire {
         int ball = 0;
         for (int i = 0; i < numberInComputer.length(); i++) {
             if (numberInComputer.charAt(i) == numberInUser.charAt(i)) {
-                strike += 1;
+                strike++;
                 continue;
             }
             if (numberInComputer.charAt(i) != numberInUser.charAt(i)
                     && numberInComputer.contains("" + numberInUser.charAt(i))) {
-                ball += 1;
+                ball++;
             }
         }
         return String.format("%d:%d", ball, strike);
