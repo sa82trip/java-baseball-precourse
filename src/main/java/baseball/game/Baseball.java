@@ -46,10 +46,10 @@ public class Baseball {
             return NOTHING.label;
         }
         if (BALL_PART.equals(ZERO_BALL.label)) {
-            return STRIKE_PART;
+            return String.format("%s스트라이크", STRIKE_PART);
         }
         if (STRIKE_PART.equals(ZERO_STRIKE.label)) {
-            return BALL_PART;
+            return String.format("%s볼", BALL_PART);
         }
         return String.format("%s볼 %s스트라이크", BALL_PART, STRIKE_PART);
     }
