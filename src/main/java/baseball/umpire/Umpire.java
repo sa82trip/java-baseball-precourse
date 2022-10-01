@@ -1,10 +1,14 @@
 package baseball.umpire;
 
+import static baseball.constant.BaseballStringEnum.ZERO_BALL;
+import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
+
+
 public class Umpire {
 
     public String judge(String numberInComputer, String numberInUser) {
-        int strike = 0;
-        int ball = 0;
+        int strike = Integer.parseInt(ZERO_STRIKE.label);
+        int ball = Integer.parseInt(ZERO_BALL.label);
         for (int i = 0; i < numberInComputer.length(); i++) {
             strike += isAStrike(numberInComputer, numberInUser, i);
             ball += isABall(numberInComputer, numberInUser, i);

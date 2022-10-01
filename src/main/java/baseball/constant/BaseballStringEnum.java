@@ -11,7 +11,13 @@ public enum BaseballStringEnum {
     TWO_STRIKE("2"),
     THREE_STRIKE("3"),
     NOTHING("낫싱"),
+    STRIKE_IN_KOREAN("스트라이크"),
+    BALL_IN_KOREAN("볼"),
+    USER_INPUT_REQUEST_STATEMENT("숫자를 입력해주세요"),
+    NEW_GAME("1"),
+    END_GAME("2"),
 
+    // for test
     INVALID_NUMBER_FOR_INPUT("0"),
     INVALID_DIGIT_NUMBER("1234"),
     VALID_NUMBER("123"),
@@ -20,10 +26,7 @@ public enum BaseballStringEnum {
     STRING_WITH_LENGTH_ONE("1"),
     STRING_WITH_LENGTH_TWO("12"),
     STRIKE("strike"),
-    BALL("ball"),
-    STRIKE_IN_KOREAN("스트라이크"),
-    BALL_IN_KOREAN("볼"),
-    USER_INPUT_REQUEST_STATEMENT("숫자를 입력해주세요");
+    BALL("ball");
 
 
     public final String label;
