@@ -29,10 +29,10 @@ public class Player {
         if (inputNumber.contains(INVALID_NUMBER_FOR_INPUT.label)) {
             return false;
         }
-        return !containDuplicate(inputNumber);
+        return !checkContainDuplication(inputNumber);
     }
 
-    protected boolean containDuplicate(String inputNumber) {
+    protected boolean checkContainDuplication(String inputNumber) {
         if (isTargetLength(inputNumber)) {
             return false;
         }
@@ -44,7 +44,7 @@ public class Player {
             return true;
         }
 
-        return containDuplicate(substring);
+        return checkContainDuplication(substring);
     }
 
     protected boolean isTargetLength(String inputNumber) {

@@ -39,20 +39,20 @@ class PlayerTest {
     @DisplayName("should return true with ${NUMBER_INCLUDES_DUPLICATE}")
     void containDuplicate_true() {
         Player unit = new Player();
-        assertThat(unit.containDuplicate(NUMBER_INCLUDES_DUPLICATE.label)).isTrue();
+        assertThat(unit.checkContainDuplication(NUMBER_INCLUDES_DUPLICATE.label)).isTrue();
     }
 
     @Test
     @DisplayName("should return false with ${VALID_NUMBER}")
     void containDuplicate_false() {
         Player unit = new Player();
-        assertThat(unit.containDuplicate(VALID_NUMBER.label)).isFalse();
+        assertThat(unit.checkContainDuplication(VALID_NUMBER.label)).isFalse();
     }
 
     @Test
     void containDuplicates() {
         Player unit = new Player();
-        assertThat(unit.containDuplicate(NUMBER_INCLUDES_DUPLICATE_OVER_3_DIGIT.label)).isTrue();
+        assertThat(unit.checkContainDuplication(NUMBER_INCLUDES_DUPLICATE_OVER_3_DIGIT.label)).isTrue();
     }
 
     @Test

@@ -45,6 +45,6 @@ class BaseballTest {
     @Test
     @DisplayName("game should be finished if user gets three strikes")
     void needToFinish() {
-        assertThat(unit.needToFinish(String.format("%s:%s", ZERO_BALL.label, THREE_STRIKE.label))).isTrue();
+        assertThat(unit.checkIfGameIsDone(String.format("%s:%s", ZERO_BALL.label, THREE_STRIKE.label))).isTrue();
     }
 }

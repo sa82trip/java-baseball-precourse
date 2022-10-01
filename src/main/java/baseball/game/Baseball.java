@@ -38,7 +38,7 @@ public class Baseball {
             user.setInputNumber(Console.readLine());
             String result = umpire.judge(computer.getInputNumber(), user.getInputNumber());
             System.out.println(returnStringifyJudgeStatement(result.split(":")));
-            finish = needToFinish(result);
+            finish = checkIfGameIsDone(result);
         }
     }
 
@@ -58,7 +58,7 @@ public class Baseball {
     }
 
 
-    protected boolean needToFinish(String judge) {
+    protected boolean checkIfGameIsDone(String judge) {
         return judge.endsWith(THREE_STRIKE.label);
     }
 }
