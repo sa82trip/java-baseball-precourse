@@ -16,8 +16,13 @@ public enum BaseballStringEnum {
     INVALID_DIGIT_NUMBER("1234"),
     VALID_NUMBER("123"),
     NUMBER_INCLUDES_DUPLICATE("122"),
+    NUMBER_INCLUDES_DUPLICATE_OVER_3_DIGIT("1233"),
+    STRING_WITH_LENGTH_ONE("1"),
+    STRING_WITH_LENGTH_TWO("12"),
     STRIKE("strike"),
-    BALL("ball");
+    BALL("ball"),
+    STRIKE_IN_KOREAN("스트라이크"),
+    BALL_IN_KOREAN("볼");
 
 
     public final String label;

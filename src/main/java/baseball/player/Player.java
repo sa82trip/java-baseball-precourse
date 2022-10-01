@@ -1,8 +1,11 @@
 package baseball.player;
 
-import static baseball.constant.BaseballNumberEnum.BEGINNING_CHARACTER;
 import static baseball.constant.BaseballNumberEnum.MAX_DIGIT;
+import static baseball.constant.BaseballNumberEnum.TARGET_LENGTH_FOR_CHECKING_STRING;
 import static baseball.constant.BaseballStringEnum.INVALID_NUMBER_FOR_INPUT;
+import static baseball.util.Util.getFirstLetter;
+import static baseball.util.Util.getSubstring;
+
 
 public class Player {
     String inputNumber;
@@ -26,14 +29,26 @@ public class Player {
         if (inputNumber.contains(INVALID_NUMBER_FOR_INPUT.label)) {
             return false;
         }
-        if (containDuplicate(inputNumber)) {
-            return false;
-        }
-        return true;
+        return !containDuplicate(inputNumber);
     }
 
     protected boolean containDuplicate(String inputNumber) {
-        String subString = inputNumber.substring(1, 3);
-        return subString.contains(String.valueOf(inputNumber.charAt(BEGINNING_CHARACTER.intValue)));
+        if (isTargetLength(inputNumber)) {
+            return false;
+        }
+
+        String firstLetter = getFirstLetter(inputNumber);
+        String substring = getSubstring(inputNumber);
+
+        if (substring.contains(firstLetter)) {
+            return true;
+        }
+
+        return containDuplicate(substring);
     }
+
+    protected boolean isTargetLength(String inputNumber) {
+        return inputNumber.length() == TARGET_LENGTH_FOR_CHECKING_STRING.intValue;
+    }
+
 }

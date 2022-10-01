@@ -2,6 +2,9 @@ package baseball.player;
 
 import static baseball.constant.BaseballStringEnum.INVALID_DIGIT_NUMBER;
 import static baseball.constant.BaseballStringEnum.NUMBER_INCLUDES_DUPLICATE;
+import static baseball.constant.BaseballStringEnum.NUMBER_INCLUDES_DUPLICATE_OVER_3_DIGIT;
+import static baseball.constant.BaseballStringEnum.STRING_WITH_LENGTH_ONE;
+import static baseball.constant.BaseballStringEnum.STRING_WITH_LENGTH_TWO;
 import static baseball.constant.BaseballStringEnum.VALID_NUMBER;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -46,4 +49,23 @@ class PlayerTest {
         assertThat(unit.containDuplicate(VALID_NUMBER.label)).isFalse();
     }
 
+    @Test
+    void containDuplicates() {
+        Player unit = new Player();
+        assertThat(unit.containDuplicate(NUMBER_INCLUDES_DUPLICATE_OVER_3_DIGIT.label)).isTrue();
+    }
+
+    @Test
+    @DisplayName("pass a string with length 1 then should return true")
+    void isTargetLength() {
+        Player unit = new Player();
+        assertThat(unit.isTargetLength(STRING_WITH_LENGTH_ONE.label)).isTrue();
+    }
+
+    @Test
+    @DisplayName("pass a string with length 2 then should return false")
+    void isTargetLength_false() {
+        Player unit = new Player();
+        assertThat(unit.isTargetLength(STRING_WITH_LENGTH_TWO.label)).isFalse();
+    }
 }
