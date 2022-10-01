@@ -11,6 +11,9 @@ public enum BaseballNumberEnum {
     INDEX_ZERO(0),
     INDEX_ONE(1),
     INDEX_ONE_HUNDRED(100),
+    INDEX_FOR_BALL(0),
+    INDEX_FOR_STRIKE(1),
+
 
     NUMBER_START(1),
     NUMBER_END(9);
