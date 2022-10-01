@@ -36,7 +36,7 @@ class BaseballTest {
     @Test
     @DisplayName("when user gets one ball and two strikes")
     void displayResult_() {
-        assertThat(unit.displayResult(new String[]{ONE_BALL.label, TWO_STRIKE.label}))
+        assertThat(unit.returnStringifyJudgeStatement(new String[]{ONE_BALL.label, TWO_STRIKE.label}))
                 .contains(String.format("%s", ONE_BALL.label))
                 .contains(String.format("%s%s", TWO_STRIKE.label, STRIKE_IN_KOREAN.label));
 

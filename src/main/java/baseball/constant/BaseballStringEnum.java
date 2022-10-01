@@ -22,7 +22,8 @@ public enum BaseballStringEnum {
     STRIKE("strike"),
     BALL("ball"),
     STRIKE_IN_KOREAN("스트라이크"),
-    BALL_IN_KOREAN("볼");
+    BALL_IN_KOREAN("볼"),
+    USER_INPUT_REQUEST_STATEMENT("숫자를 입력해주세요");
 
 
     public final String label;
