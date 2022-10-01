@@ -29,4 +29,24 @@ class UmpireTest {
         Umpire unit = new Umpire();
         assertThat(unit.judge("123", "456")).startsWith("0").endsWith("0");
     }
+
+    @Test
+    void isABall() {
+        Umpire unit = new Umpire();
+        int ball = 0;
+        for (int i = 0; i < 3; i++) {
+            ball += unit.isABall("123", "256", i);
+        }
+        assertThat(ball).isEqualTo(1);
+    }
+
+    @Test
+    void isAStrike() {
+        Umpire unit = new Umpire();
+        int strike = 0;
+        for (int i = 0; i < 3; i++) {
+            strike += unit.isAStrike("123", "423", i);
+        }
+        assertThat(strike).isEqualTo(2);
+    }
 }
