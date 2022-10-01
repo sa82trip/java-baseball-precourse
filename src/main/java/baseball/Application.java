@@ -15,11 +15,11 @@ public class Application {
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        Util util = new Util();
-        Player computer = new Player();
-        Player user = new Player();
-        Umpire umpire = new Umpire();
-        Baseball baseball = new Baseball(computer, user, umpire, util);
+        final Util util = new Util();
+        final Player computer = new Player();
+        final Player user = new Player();
+        final Umpire umpire = new Umpire();
+        final Baseball baseball = new Baseball(computer, user, umpire, util);
 
         String flg = NEW_GAME.label;
         while (flg.equals(NEW_GAME.label)) {
