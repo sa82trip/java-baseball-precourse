@@ -2,6 +2,7 @@ package baseball.game;
 
 
 import static baseball.constant.BaseballStringEnum.ONE_BALL;
+import static baseball.constant.BaseballStringEnum.STRIKE_IN_KOREAN;
 import static baseball.constant.BaseballStringEnum.THREE_STRIKE;
 import static baseball.constant.BaseballStringEnum.TWO_STRIKE;
 import static baseball.constant.BaseballStringEnum.ZERO_BALL;
@@ -35,8 +36,10 @@ class BaseballTest {
     @Test
     @DisplayName("when user gets one ball and two strikes")
     void displayResult_() {
-        assertThat(unit.displayResult(new String[]{ONE_BALL.label, TWO_STRIKE.label})).contains("1볼")
-                .contains("2스트라이크");
+        assertThat(unit.displayResult(new String[]{ONE_BALL.label, TWO_STRIKE.label}))
+                .contains(String.format("%s", ONE_BALL.label))
+                .contains(String.format("%s%s", TWO_STRIKE.label, STRIKE_IN_KOREAN.label));
+
     }
 
     @Test
