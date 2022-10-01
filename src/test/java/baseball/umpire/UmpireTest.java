@@ -1,5 +1,11 @@
 package baseball.umpire;
 
+import static baseball.constant.BaseballStringEnum.ONE_STRIKE;
+import static baseball.constant.BaseballStringEnum.THREE_BALL;
+import static baseball.constant.BaseballStringEnum.THREE_STRIKE;
+import static baseball.constant.BaseballStringEnum.TWO_BALL;
+import static baseball.constant.BaseballStringEnum.ZERO_BALL;
+import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
@@ -9,25 +15,25 @@ class UmpireTest {
     @Test
     void judge_three_strike() {
         Umpire unit = new Umpire();
-        assertThat(unit.judge("123", "123")).startsWith("0").contains("3");
+        assertThat(unit.judge("123", "123")).startsWith(ZERO_BALL.label).contains(THREE_STRIKE.label);
     }
 
     @Test
     void judge_three_ball() {
         Umpire unit = new Umpire();
-        assertThat(unit.judge("123", "312")).startsWith("3").contains("0");
+        assertThat(unit.judge("123", "312")).startsWith(THREE_BALL.label).contains(ZERO_STRIKE.label);
     }
 
     @Test
     void judge_two_ball_one_strike() {
         Umpire unit = new Umpire();
-        assertThat(unit.judge("123", "213")).startsWith("2").contains("1");
+        assertThat(unit.judge("123", "213")).startsWith(TWO_BALL.label).contains(ONE_STRIKE.label);
     }
 
     @Test
     void judge_nothing() {
         Umpire unit = new Umpire();
-        assertThat(unit.judge("123", "456")).startsWith("0").endsWith("0");
+        assertThat(unit.judge("123", "456")).startsWith(ZERO_BALL.label).endsWith(ZERO_STRIKE.label);
     }
 
     @Test
