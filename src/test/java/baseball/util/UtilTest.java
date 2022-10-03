@@ -32,7 +32,6 @@ class UtilTest {
         int count = INDEX_ZERO.intValue;
         while (count < INDEX_ONE_HUNDRED.intValue) {
             makeRandomNumberInString();
-            System.out.printf("count: %d %n", count);
             count++;
         }
     }
