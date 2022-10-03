@@ -6,7 +6,8 @@ import static baseball.constant.BaseballNumberEnum.NUMBER_START;
 
 import baseball.constant.BaseballNumberEnum;
 import baseball.game.Baseball;
-import baseball.model.player.Player;
+import baseball.model.player.ComputerPlayer;
+import baseball.model.player.HumanPlayer;
 import baseball.umpire.Umpire;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
@@ -43,9 +44,8 @@ public class Util {
      * @return Baseball with computer player which includes random number
      */
     public Baseball getBaseballWithRandomNumber() {
-        final Player computer = new Player();
-        computer.setInputNumber(this.makeRandomNumberInString());
-        final Player user = new Player();
+        final ComputerPlayer computer = new ComputerPlayer();
+        final HumanPlayer user = new HumanPlayer();
         final Umpire umpire = new Umpire();
         return new Baseball(computer, user, umpire);
     }

@@ -10,17 +10,18 @@ import static baseball.constant.BaseballStringEnum.USER_INPUT_REQUEST_STATEMENT;
 import static baseball.constant.BaseballStringEnum.ZERO_BALL;
 import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
 
-import baseball.model.player.Player;
+import baseball.model.player.ComputerPlayer;
+import baseball.model.player.HumanPlayer;
 import baseball.umpire.Umpire;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Baseball {
-    private final Player computer;
-    private final Player user;
+    private final ComputerPlayer computer;
+    private final HumanPlayer user;
     private final Umpire umpire;
 
 
-    public Baseball(Player computer, Player user, Umpire umpire) {
+    public Baseball(ComputerPlayer computer, HumanPlayer user, Umpire umpire) {
         this.computer = computer;
         this.user = user;
         this.umpire = umpire;
