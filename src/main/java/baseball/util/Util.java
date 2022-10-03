@@ -8,7 +8,7 @@ import baseball.constant.BaseballNumberEnum;
 import baseball.game.Baseball;
 import baseball.model.player.ComputerPlayer;
 import baseball.model.player.HumanPlayer;
-import baseball.umpire.Umpire;
+import baseball.model.umpire.Umpire;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
 import java.util.Set;

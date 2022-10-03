@@ -12,7 +12,7 @@ import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
 
 import baseball.model.player.ComputerPlayer;
 import baseball.model.player.HumanPlayer;
-import baseball.umpire.Umpire;
+import baseball.model.umpire.Umpire;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Baseball {

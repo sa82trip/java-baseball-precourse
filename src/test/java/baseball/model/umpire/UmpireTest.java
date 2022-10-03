@@ -1,4 +1,4 @@
-package baseball.umpire;
+package baseball.model.umpire;
 
 import static baseball.constant.BaseballStringEnum.ONE_STRIKE;
 import static baseball.constant.BaseballStringEnum.THREE_BALL;
