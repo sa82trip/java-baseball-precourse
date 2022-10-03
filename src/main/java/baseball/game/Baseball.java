@@ -12,7 +12,6 @@ import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
 
 import baseball.player.Player;
 import baseball.umpire.Umpire;
-import baseball.util.Util;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Baseball {
@@ -20,20 +19,15 @@ public class Baseball {
     private final Player user;
     private final Umpire umpire;
 
-    Util util;
-
-    public Baseball(Player computer, Player user, Umpire umpire, Util util) {
+    public Baseball(Player computer, Player user, Umpire umpire) {
         this.computer = computer;
         this.user = user;
         this.umpire = umpire;
-        this.util = util;
     }
 
     public void beginGame() {
 
         boolean finish = false;
-
-        computer.setInputNumber(util.makeRandomNumberInString());
 
         while (!finish) {
             System.out.print(USER_INPUT_REQUEST_STATEMENT.label + ":");

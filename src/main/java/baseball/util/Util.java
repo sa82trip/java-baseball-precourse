@@ -5,6 +5,9 @@ import static baseball.constant.BaseballNumberEnum.NUMBER_END;
 import static baseball.constant.BaseballNumberEnum.NUMBER_START;
 
 import baseball.constant.BaseballNumberEnum;
+import baseball.game.Baseball;
+import baseball.player.Player;
+import baseball.umpire.Umpire;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +22,15 @@ public class Util {
         return result.toString();
     }
 
+    public static String getSubstring(String inputNumber) {
+        return inputNumber.substring(BaseballNumberEnum.INDEX_ONE.intValue);
+    }
+
+    public static String getFirstLetter(String inputNumber) {
+        return String.valueOf(inputNumber.charAt(BaseballNumberEnum.INDEX_ZERO.intValue));
+    }
+
+
     private Set<Integer> getRandomNumbers(int numberOfDigits) {
         Set<Integer> randomNumbers = new HashSet<>();
         while (randomNumbers.size() < numberOfDigits) {
@@ -27,12 +39,15 @@ public class Util {
         return randomNumbers;
     }
 
-    public static String getSubstring(String inputNumber) {
-        return inputNumber.substring(BaseballNumberEnum.INDEX_ONE.intValue);
-    }
-
-    public static String getFirstLetter(String inputNumber) {
-        return String.valueOf(inputNumber.charAt(BaseballNumberEnum.INDEX_ZERO.intValue));
+    /**
+     * @return Baseball with computer player which includes random number
+     */
+    public Baseball getBaseballWithRandomNumber() {
+        final Player computer = new Player();
+        computer.setInputNumber(this.makeRandomNumberInString());
+        final Player user = new Player();
+        final Umpire umpire = new Umpire();
+        return new Baseball(computer, user, umpire);
     }
 
 }
