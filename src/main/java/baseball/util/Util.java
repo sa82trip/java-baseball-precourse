@@ -6,7 +6,7 @@ import static baseball.constant.BaseballNumberEnum.NUMBER_START;
 
 import baseball.constant.BaseballNumberEnum;
 import baseball.game.Baseball;
-import baseball.player.Player;
+import baseball.model.player.Player;
 import baseball.umpire.Umpire;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.HashSet;

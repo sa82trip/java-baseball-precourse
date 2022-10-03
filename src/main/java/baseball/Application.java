@@ -18,7 +18,7 @@ public class Application {
         String flg = NEW_GAME.label;
         while (flg.equals(NEW_GAME.label)) {
             Baseball baseball = util.getBaseballWithRandomNumber();
-            baseball.beginGame();
+            baseball.beginGame(false);
             System.out.printf("%d개의 숫자를 모두 맞히셨습니다! 게임 종료%n", DIGIT_FOR_GAME);
             System.out.printf("게임을 새로 시작하려면 %s, 종료하려면 %s를 입력하세요%n", NEW_GAME.label, END_GAME.label);
             flg = Console.readLine();

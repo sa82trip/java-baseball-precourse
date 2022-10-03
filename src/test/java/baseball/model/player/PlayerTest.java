@@ -1,4 +1,4 @@
-package baseball.player;
+package baseball.model.player;
 
 import static baseball.constant.BaseballStringEnum.INVALID_DIGIT_NUMBER;
 import static baseball.constant.BaseballStringEnum.NUMBER_INCLUDES_DUPLICATE;

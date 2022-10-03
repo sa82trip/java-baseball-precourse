@@ -10,7 +10,7 @@ import static baseball.constant.BaseballStringEnum.USER_INPUT_REQUEST_STATEMENT;
 import static baseball.constant.BaseballStringEnum.ZERO_BALL;
 import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
 
-import baseball.player.Player;
+import baseball.model.player.Player;
 import baseball.umpire.Umpire;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -19,23 +19,24 @@ public class Baseball {
     private final Player user;
     private final Umpire umpire;
 
+
     public Baseball(Player computer, Player user, Umpire umpire) {
         this.computer = computer;
         this.user = user;
         this.umpire = umpire;
     }
 
-    public void beginGame() {
+    public void beginGame(boolean isThreeStrike) {
 
-        boolean finish = false;
-
-        while (!finish) {
-            System.out.print(USER_INPUT_REQUEST_STATEMENT.label + ":");
-            user.setInputNumber(Console.readLine());
-            String result = umpire.judge(computer.getInputNumber(), user.getInputNumber());
-            System.out.println(returnStringifiedJudgeStatement(result.split(":")));
-            finish = checkIfGameIsDone(result);
+        if (isThreeStrike) {
+            return;
         }
+
+        System.out.print(USER_INPUT_REQUEST_STATEMENT.label + ":");
+        user.setInputNumber(Console.readLine());
+        String result = umpire.judge(computer.getInputNumber(), user.getInputNumber());
+        System.out.println(returnStringifiedJudgeStatement(result.split(":")));
+        beginGame(checkIfGameIsDone(result));
     }
 
     protected String returnStringifiedJudgeStatement(String[] result) {

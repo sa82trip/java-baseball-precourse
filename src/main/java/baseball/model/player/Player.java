@@ -1,4 +1,4 @@
-package baseball.player;
+package baseball.model.player;
 
 import static baseball.constant.BaseballNumberEnum.MAX_DIGIT;
 import static baseball.constant.BaseballNumberEnum.TARGET_LENGTH_FOR_CHECKING_STRING;
