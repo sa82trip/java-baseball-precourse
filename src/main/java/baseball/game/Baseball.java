@@ -33,7 +33,7 @@ public class Baseball {
             return;
         }
 
-        System.out.print(USER_INPUT_REQUEST_STATEMENT.label + ":");
+        System.out.print(USER_INPUT_REQUEST_STATEMENT.label);
         user.setInputNumber(Console.readLine());
         String result = umpire.judge(computer.getInputNumber(), user.getInputNumber());
         System.out.println(returnStringifiedJudgeStatement(result.split(":")));

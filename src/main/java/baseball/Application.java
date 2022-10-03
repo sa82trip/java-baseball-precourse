@@ -2,7 +2,10 @@ package baseball;
 
 import static baseball.constant.BaseballNumberEnum.MAX_DIGIT;
 import static baseball.constant.BaseballStringEnum.END_GAME;
+import static baseball.constant.BaseballStringEnum.END_GAME_NOTICE;
+import static baseball.constant.BaseballStringEnum.GET_THREE_STRIKES_NOTICE;
 import static baseball.constant.BaseballStringEnum.NEW_GAME;
+import static baseball.constant.BaseballStringEnum.NEW_GAME_OR_END_GAME;
 
 import baseball.game.Baseball;
 import baseball.util.Util;
@@ -19,10 +22,10 @@ public class Application {
         while (flg.equals(NEW_GAME.label)) {
             Baseball baseball = util.getBaseballWithRandomNumber();
             baseball.beginGame(false);
-            System.out.printf("%d개의 숫자를 모두 맞히셨습니다! 게임 종료%n", DIGIT_FOR_GAME);
-            System.out.printf("게임을 새로 시작하려면 %s, 종료하려면 %s를 입력하세요%n", NEW_GAME.label, END_GAME.label);
+            System.out.printf(GET_THREE_STRIKES_NOTICE.label, DIGIT_FOR_GAME);
+            System.out.printf(NEW_GAME_OR_END_GAME.label, NEW_GAME.label, END_GAME.label);
             flg = Console.readLine();
         }
-        System.out.println("게임 종료");
+        System.out.println(END_GAME_NOTICE.label);
     }
 }
