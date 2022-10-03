@@ -14,6 +14,7 @@ import baseball.model.player.ComputerPlayer;
 import baseball.model.player.HumanPlayer;
 import baseball.model.umpire.Umpire;
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class Baseball {
     private final ComputerPlayer computer;
@@ -35,25 +36,23 @@ public class Baseball {
 
         System.out.print(USER_INPUT_REQUEST_STATEMENT.label);
         user.setInputNumber(Console.readLine());
-        String result = umpire.judge(computer.getInputNumber(), user.getInputNumber());
-        System.out.println(returnStringifiedJudgeStatement(result.split(":")));
+        List<String> result = umpire.judge(computer.getInputNumber(), user.getInputNumber());
+        System.out.println(returnStringifiedJudgeStatement(result.get(INDEX_FOR_BALL.intValue),
+                result.get(INDEX_FOR_STRIKE.intValue)));
         beginGame(checkIfGameIsDone(result));
     }
 
-    protected String returnStringifiedJudgeStatement(String[] result) {
-        String BALL_PART = result[INDEX_FOR_BALL.intValue];
-        String STRIKE_PART = result[INDEX_FOR_STRIKE.intValue];
-        if (isaNothing(BALL_PART, STRIKE_PART)) {
+    protected String returnStringifiedJudgeStatement(String ballPart, String strikePart) {
+        if (isaNothing(ballPart, strikePart)) {
             return NOTHING.label;
         }
-        if (isaZeroBall(BALL_PART)) {
-            return String.format("%s%s", STRIKE_PART, STRIKE_IN_KOREAN.label);
+        if (isaZeroBall(ballPart)) {
+            return String.format("%s%s", strikePart, STRIKE_IN_KOREAN.label);
         }
-        if (isaZeroStrike(STRIKE_PART)) {
-            return String.format("%s%s", BALL_PART, BALL_IN_KOREAN.label);
+        if (isaZeroStrike(strikePart)) {
+            return String.format("%s%s", ballPart, BALL_IN_KOREAN.label);
         }
-
-        return String.format("%s%s %s%s", BALL_PART, BALL_IN_KOREAN.label, STRIKE_PART, STRIKE_IN_KOREAN.label);
+        return String.format("%s%s %s%s", ballPart, BALL_IN_KOREAN.label, strikePart, STRIKE_IN_KOREAN.label);
     }
 
     protected boolean isaZeroStrike(String STRIKE_PART) {
@@ -69,8 +68,8 @@ public class Baseball {
     }
 
 
-    protected boolean checkIfGameIsDone(String judge) {
-        return judge.endsWith(THREE_STRIKE.label);
+    protected boolean checkIfGameIsDone(List<String> judge) {
+        return judge.get(INDEX_FOR_STRIKE.intValue).equals(THREE_STRIKE.label);
     }
 }
 

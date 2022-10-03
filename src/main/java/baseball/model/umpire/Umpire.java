@@ -3,17 +3,20 @@ package baseball.model.umpire;
 import static baseball.constant.BaseballStringEnum.ZERO_BALL;
 import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Umpire {
 
-    public String judge(String numberInComputer, String numberInUser) {
+    public List<String> judge(String numberInComputer, String numberInUser) {
         int strike = Integer.parseInt(ZERO_STRIKE.label);
         int ball = Integer.parseInt(ZERO_BALL.label);
         for (int i = 0; i < numberInComputer.length(); i++) {
             strike += isAStrike(numberInComputer, numberInUser, i);
             ball += isABall(numberInComputer, numberInUser, i);
         }
-        return String.format("%d:%d", ball, strike);
+        return Arrays.asList(String.valueOf(ball), String.valueOf(strike));
     }
 
     protected int isABall(String numberInComputer, String numberInUser, int i) {

@@ -10,6 +10,7 @@ import static baseball.constant.BaseballStringEnum.ZERO_BALL;
 import static baseball.constant.BaseballStringEnum.ZERO_STRIKE;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Arrays;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -38,7 +39,7 @@ class BaseballTest {
     @Test
     @DisplayName("when user gets one ball and two strikes")
     void displayResult_() {
-        assertThat(unit.returnStringifiedJudgeStatement(new String[]{ONE_BALL.label, TWO_STRIKE.label}))
+        assertThat(unit.returnStringifiedJudgeStatement(ONE_BALL.label, TWO_STRIKE.label))
                 .contains(String.format("%s", ONE_BALL.label))
                 .contains(String.format("%s%s", TWO_STRIKE.label, STRIKE_IN_KOREAN.label));
 
@@ -47,7 +48,7 @@ class BaseballTest {
     @Test
     @DisplayName("game should be finished if user gets three strikes")
     void needToFinish() {
-        assertThat(unit.checkIfGameIsDone(String.format("%s:%s", ZERO_BALL.label, THREE_STRIKE.label))).isTrue();
+        assertThat(unit.checkIfGameIsDone(Arrays.asList(ZERO_BALL.label, THREE_STRIKE.label))).isTrue();
     }
 
     @Test
