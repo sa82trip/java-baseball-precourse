@@ -28,7 +28,7 @@ public class Baseball {
         this.umpire = umpire;
     }
 
-    public void beginGame(boolean isThreeStrike) {
+    public void runGame(boolean isThreeStrike) {
 
         if (isThreeStrike) {
             return;
@@ -39,7 +39,7 @@ public class Baseball {
         List<String> result = umpire.judge(computer.getInputNumber(), user.getInputNumber());
         System.out.println(returnStringifiedJudgeStatement(result.get(INDEX_FOR_BALL.intValue),
                 result.get(INDEX_FOR_STRIKE.intValue)));
-        beginGame(checkIfGameIsDone(result));
+        runGame(checkIfGameIsDone(result));
     }
 
     protected String returnStringifiedJudgeStatement(String ballPart, String strikePart) {

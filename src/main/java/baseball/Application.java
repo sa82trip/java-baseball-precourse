@@ -21,7 +21,7 @@ public class Application {
         String flg = NEW_GAME.label;
         while (flg.equals(NEW_GAME.label)) {
             Baseball baseball = util.getBaseballWithRandomNumber();
-            baseball.beginGame(false);
+            baseball.runGame(false);
             System.out.printf(GET_THREE_STRIKES_NOTICE.label, DIGIT_FOR_GAME);
             System.out.printf(NEW_GAME_OR_END_GAME.label, NEW_GAME.label, END_GAME.label);
             flg = Console.readLine();
